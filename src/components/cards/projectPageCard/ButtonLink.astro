@@ -1,0 +1,51 @@
+---
+const { href } = Astro.props as { href: string };
+---
+
+<div>
+	<!-- Mobile -->
+	<div class='block xl:hidden'>
+		<a href={href}>
+			<div
+				class={`font-bold gap-2 flex text-left tracking-normal text-base leading-5 items-center`}>
+				<span>ver detalles</span>
+				<svg
+					width='9'
+					height='14'
+					viewBox='0 0 9 16'
+					fill='none'
+					xmlns='http://www.w3.org/2000/svg'>
+					<path
+						d='M1 15L8 8L1 1'
+						stroke='#6F6FFF'
+						stroke-width='2'
+						stroke-linecap='round'
+						stroke-linejoin='round'></path>
+				</svg>
+			</div>
+		</a>
+	</div>
+
+	<!-- Desktop -->
+	<div class='hidden xl:block'>
+		<a href={href}>
+			<div
+				class={`font-bold gap-2 flex text-left tracking-normal text-base leading-5`}>
+				<span>ver detalles</span>
+				<svg
+					width='9'
+					height='16'
+					viewBox='0 0 9 16'
+					fill='none'
+					xmlns='http://www.w3.org/2000/svg'>
+					<path
+						d='M1 15L8 8L1 1'
+						stroke='#6F6FFF'
+						stroke-width='2'
+						stroke-linecap='round'
+						stroke-linejoin='round'></path>
+				</svg>
+			</div>
+		</a>
+	</div>
+</div>

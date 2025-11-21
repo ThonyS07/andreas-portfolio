@@ -1,0 +1,31 @@
+---
+import ProjectPageCardTitle from "./ProjectPageCardTitle.astro";
+import type { ProjectsPageCardTypes } from "../../../types/ProjectCardTypes"
+import ProjectsPageCardText from "./ProjectPageCardText.astro";
+import ButtonLink from "./ButtonLink.astro";
+import ProjectPageCardImage from "./ProjectPageCardImage.astro";
+import { HeaderB4 } from "../../../format/BoldTypography";
+
+const {title, text, image, order} = Astro.props as ProjectsPageCardTypes;
+
+---
+<div class='flex flex-row  items-start w-[280px] h-[465px] p-[27px] rounded-[8px]  bg-blanco  dark:bg-github'>
+			<div class='w-54 xl:w-[68px] items-center justify-center text-purple3'>
+				<HeaderB4>{order}</HeaderB4>
+			
+			</div>
+			<div class='flex flex-col'>
+				<div>
+					<ProjectPageCardTitle>{title}</ProjectPageCardTitle>
+				</div>
+				<div>
+					<ProjectsPageCardText>{text}</ProjectsPageCardText>
+				</div>
+				<div class="py-4">
+					<ProjectPageCardImage image={image}></ProjectPageCardImage>
+				</div>
+				<div class="flex justify-end text-purple3 ">
+					<ButtonLink/>
+				</div>
+			</div>
+		</div>

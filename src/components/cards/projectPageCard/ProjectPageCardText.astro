@@ -1,0 +1,19 @@
+---
+import type { ReactNode } from "react";
+import { TextR2, TextR3 } from "../../../format/RegularTypography";
+
+interface Props {
+	children: ReactNode;
+}
+
+const { children } = Astro.props as Props;
+---
+
+<div>
+	<div class='block xl:hidden'>
+		<TextR3>{children}</TextR3>
+	</div>
+	<div class='hidden xl:block'>
+		<TextR2>{children}</TextR2>
+	</div>
+</div>
