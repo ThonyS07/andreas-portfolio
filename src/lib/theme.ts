@@ -3,30 +3,60 @@ type Theme = "light" | "dark" | "system";
 
 let currentTheme: Theme = "system";
 let listeners: Set<() => void> = new Set();
+let initialized = false;
 
-// Dispara evento global
-function notify() {
-	for (const fn of listeners) fn();
+// 🔥 Solo se ejecuta en el browser
+function initTheme() {
+	if (initialized) return;
+	initialized = true;
+
+	// Intenta cargar desde localStorage
+	const saved = localStorage.getItem("theme") as Theme | null;
+	if (saved) currentTheme = saved;
+
+	applyTheme(currentTheme);
+
+	// Si cambia el modo del sistema, actualizamos
+	window
+		.matchMedia("(prefers-color-scheme: dark)")
+		.addEventListener("change", () => {
+			if (currentTheme === "system") applyTheme("system");
+		});
 }
 
-export function getTheme(): Theme {
-	return currentTheme;
-}
-
-export function setTheme(theme: Theme) {
-	currentTheme = theme;
-	localStorage.setItem("theme", theme);
-
-	// Aplica al DOM
+function applyTheme(theme: Theme) {
 	const root = document.documentElement;
+
 	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 	const finalTheme =
 		theme === "system" ? (prefersDark ? "dark" : "light") : theme;
 
+	// ACTUALIZAR estado global real
+	currentTheme = finalTheme; // <<<<<<🔥 NECESARIO
+
 	root.classList.toggle("dark", finalTheme === "dark");
 
 	notify();
+}
+
+
+function notify() {
+	for (const fn of listeners) fn();
+}
+
+export function getTheme(): Theme {
+	if (!initialized && typeof window !== "undefined") initTheme();
+	return currentTheme;
+}
+
+export function setTheme(theme: Theme) {
+	if (typeof window === "undefined") return; // SSR guard
+
+	currentTheme = theme;
+	localStorage.setItem("theme", theme);
+
+	applyTheme(theme);
 }
 
 export function toggleTheme() {
@@ -36,12 +66,20 @@ export function toggleTheme() {
 
 export function subscribe(fn: () => void) {
 	listeners.add(fn);
-	return () => listeners.delete(fn);
+
+	// Cleanup debe retornat void, no boolean
+	return () => {
+		listeners.delete(fn);
+	};
 }
 
-// Hook-like API (similar a useTheme)
-export function useTheme(callback: () => void) {
-	subscribe(callback);
+
+// 🟦 API tipo "useTheme" como next-themes, pero sin React
+export function useTheme(callback?: () => void) {
+	if (typeof window !== "undefined") initTheme();
+
+	if (callback) subscribe(callback);
+
 	return {
 		theme: getTheme(),
 		setTheme,

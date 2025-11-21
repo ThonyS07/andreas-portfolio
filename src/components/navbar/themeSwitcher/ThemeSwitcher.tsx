@@ -1,29 +1,36 @@
 import { useEffect, useState } from "react";
-import { setTheme, useTheme, toggleTheme, getTheme } from "../../../lib/theme";
+import { setTheme, toggleTheme, getTheme, subscribe } from "../../../lib/theme";
 import MoonIcon from "./MoonIcon";
 import SunIcon from "./SunIcon";
 import SwitchS from "../../switches/SwitchS";
 
 export default function ThemeSwitcher() {
+	const [theme, setThemeState] = useState<"light" | "dark" | "system">("light");
 	const [mounted, setMounted] = useState(false);
 
-	const { theme, setTheme: applyTheme } = useTheme(() => {
-		console.log("Theme changed:", getTheme());
-	});
-
 	useEffect(() => {
+		// Establecer tema inicial
+		setThemeState(getTheme());
+
+		// Suscribirse a cambios del tema
+		const unsubscribe = subscribe(() => {
+			setThemeState(getTheme());
+		});
+
 		setMounted(true);
+		return unsubscribe;
 	}, []);
 
 	const handleThemeChange = () => {
-		applyTheme(theme === "light" ? "dark" : "light");
+		const newTheme = theme === "light" ? "dark" : "light";
+		setTheme(newTheme);
 	};
 
 	if (!mounted) return null;
 
 	return (
 		<SwitchS onClick={handleThemeChange}>
-			{theme === "dark" ? <MoonIcon /> : <SunIcon />}
+			{theme === "dark" ? <MoonIcon className='h-4 w-4' /> : <SunIcon className='h-4 w-4' />}
 		</SwitchS>
 	);
 }
