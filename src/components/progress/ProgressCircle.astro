@@ -5,45 +5,31 @@ import { TextR4 } from "../../format/RegularTypography";
 import ProgressWLabelAndName from "./ProgressWLabelAndName";
 
 const { value, size, text } = Astro.props as ProgressGeneralTypes;
+const sizes: { [key: string]: number }  = {
+	xs: 64,
+	s: 152,
+	m: 200,
+	l: 232,
+	xl: 280,
+};
+
+const key = size.toLowerCase();
 ---
 
 {
-	size.toLowerCase() === "xs" && (
+	key === "xs" ? (
 		<div class='flex flex-col items-center'>
-			<ProgressWLabel value={value} size={64} />
+			<ProgressWLabel value={value} size={sizes[key]} />
 			<TextR4>{text}</TextR4>
 		</div>
-	)
-}
-
-{
-	size.toLowerCase() === "s" && (
-		<div>
-			<ProgressWLabelAndName value={value} size={152} text={text} client:load />
-		</div>
-	)
-}
-
-{
-	size.toLowerCase() === "m" && (
-		<div>
-			<ProgressWLabelAndName value={value} size={200} text={text} client:load />
-		</div>
-	)
-}
-
-{
-	size.toLowerCase() === "l" && (
-		<div>
-			<ProgressWLabelAndName value={value} size={232} text={text} client:load />
-		</div>
-	)
-}
-
-{
-	size.toLowerCase() === "xl" && (
-		<div>
-			<ProgressWLabelAndName value={value} size={280} text={text} client:load />
+	) : (
+		<div >
+			<ProgressWLabelAndName
+				value={value}
+				size={sizes[key]}
+				text={text}
+				client:load
+			/>
 		</div>
 	)
 }
