@@ -1,0 +1,49 @@
+---
+import ProgressWLabel from "./ProgressWLabel.astro";
+import type { ProgressGeneralTypes } from "../../types/ProgressTypes.ts";
+import { TextR4 } from "../../format/RegularTypography";
+import ProgressWLabelAndName from "./ProgressWLabelAndName";
+
+const { value, size, text } = Astro.props as ProgressGeneralTypes;
+---
+
+{
+	size.toLowerCase() === "xs" && (
+		<div class='flex flex-col items-center'>
+			<ProgressWLabel value={value} size={64} />
+			<TextR4>{text}</TextR4>
+		</div>
+	)
+}
+
+{
+	size.toLowerCase() === "s" && (
+		<div>
+			<ProgressWLabelAndName value={value} size={152} text={text} client:load />
+		</div>
+	)
+}
+
+{
+	size.toLowerCase() === "m" && (
+		<div>
+			<ProgressWLabelAndName value={value} size={200} text={text} client:load />
+		</div>
+	)
+}
+
+{
+	size.toLowerCase() === "l" && (
+		<div>
+			<ProgressWLabelAndName value={value} size={232} text={text} client:load />
+		</div>
+	)
+}
+
+{
+	size.toLowerCase() === "xl" && (
+		<div>
+			<ProgressWLabelAndName value={value} size={280} text={text} client:load />
+		</div>
+	)
+}

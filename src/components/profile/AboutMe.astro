@@ -1,0 +1,40 @@
+---
+import { TextL1 } from "../../format/LightTypography";
+import { HeaderBl5, TextBl1 } from "../../format/BlackTypography";
+import ProfileCardsWrapper from "./ProfileCardsWrapper.astro";
+import SoftSkills from "./SoftSkills.astro";
+import HardSkills from "./HardSkills.astro";
+import Experience from "./Experience.astro";
+---
+
+<div
+	class='flex flex-col w-full items-center sm:my-12 md:my-16 xl:my-14'>
+	<div
+		class='flex flex-col max-[768px]:mb-10 mb-14 w-full items-center'>
+		<div class='mb-8 flex flex-col items-center'>
+			<TextL1>Quien soy</TextL1>
+			<HeaderBl5>Sobre mí</HeaderBl5>
+		</div>
+		<ProfileCardsWrapper />
+	</div>
+	<div class='flex flex-col w-full justify-center items-center'>
+		<div class='flex w-full mb-8  justify-center items-center'>
+			<TextBl1>Mi experiencia como UX</TextBl1>
+		</div>
+		<div class='flex '>
+			<Experience />
+		</div>
+	</div>
+	<div class='flex flex-col w-full justify-center items-center mb-14'>
+		<TextBl1>Mis habilidades blandas</TextBl1>
+		<div class='mt-8 '>
+			<SoftSkills />
+		</div>
+	</div>
+	<div class='flex flex-col w-full justify-center items-center'>
+		<TextBl1>Mis habilidades duras</TextBl1>
+		<div class='mt-8 max-[768px]:mb-10 md:mb-14'>
+			<HardSkills />
+		</div>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+---
+import HomeCard from "../cards/homeCard/HomeCard.astro";
+import FamiliaIcon from "../cards/homeCard/icons/FamiliaIcon.astro";
+import ViajesIcon from "../cards/homeCard/icons/ViajesIcon.astro";
+import PersonasIcon from "../cards/homeCard/icons/PersonasIcon.astro";
+---
+
+<div
+	class='flex items-center justify-center flex-col w-full md:w-[684px] lg:w-full gap-6 md:flex-row xl:mx-[104px] md:flex-wrap lg:flex-nowrap'>
+	<div>
+		<HomeCard
+			titulo='Familia'
+			text='Soy un miembro feliz de una gran familia, sin duda es parte de mi identidad laboral tambien.'>
+			<FamiliaIcon />
+		</HomeCard>
+	</div>
+	<div class='my-0 '>
+		<HomeCard
+			titulo='Danza'
+			text='He sido participante de distintos elencos de danza, donde aprendí a ser parte de un equipo.'>
+			<PersonasIcon />
+		</HomeCard>
+	</div>
+	<div class='my-0 '>
+		<HomeCard
+			titulo='Viajes'
+			text='Amo con locura viajar y conocer diferentes culturas, esto ayuda mucho a mi curiosidad'>
+			<ViajesIcon />
+		</HomeCard>
+	</div>
+	<div class=''>
+		<HomeCard
+			titulo='Conversaciones'
+			text='Me gusta mucho conversar, encuentro fascinante conocer que hay en las cabezas de las personas'>
+			<ViajesIcon />
+		</HomeCard>
+	</div>
+</div>

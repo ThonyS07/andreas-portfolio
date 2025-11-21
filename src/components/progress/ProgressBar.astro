@@ -1,0 +1,31 @@
+---
+import ProgressLevelOne from "./ProgressLevelOne.astro";
+import ProgressLevelTwo from "./ProgressLevelTwo.astro";
+import ProgressLevelThree from "./ProgressLevelThree.astro";
+import ProgressLevelFour from "./ProgressLevelFour.astro";
+
+import { TextSB2 } from "../../format/SemiBoldTypography";
+
+const { text, level } = Astro.props as {
+    text: string;
+    level: number;
+};
+---
+
+<div
+	class='sm:w-[328px] sm:h-14 md:w-[680px]  lg:w-[564px] xl:w-[744px] h-[60px]'>
+	<div class='mb-4'>
+		<TextSB2>{text}</TextSB2>
+	</div>
+	{
+		level === 1 ? (
+			<ProgressLevelOne />
+		) : level === 2 ? (
+			<ProgressLevelTwo />
+		) : level === 3 ? (
+			<ProgressLevelThree />
+		) : (
+			<ProgressLevelFour />
+		)
+	}
+</div>

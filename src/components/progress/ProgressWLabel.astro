@@ -1,0 +1,46 @@
+---
+import type { ProgressTypes } from "../../types/ProgressTypes";
+import { useTheme, getTheme } from "../../lib/theme";
+
+const { value, size } = Astro.props as ProgressTypes;
+const theme = getTheme();
+const grosor = 0.075 * size;
+const radio = size / 2 - grosor / 2;
+const circumference = 2 * Math.PI * radio;
+const offset = circumference - (value / 100) * circumference;
+const color = theme === "dark" ? "#ffffff" : "#1a1d12";
+---
+
+<div class=' flex justify-center items-center w-max '>
+	<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+		<circle
+			cx={size / 2}
+			cy={size / 2}
+			r={radio}
+			stroke-width={grosor}
+			class='fill-none stroke-[#f0f3ff] dark:stroke-[#30344a] '></circle>
+		<circle
+			cx={size / 2}
+			cy={size / 2}
+			r={radio}
+			stroke-width={grosor}
+            stroke-linecap='round'
+            stroke-linejoin='round'
+			class={`fill-none stroke-[#8249ef]`}
+			style={{
+				strokeDasharray: circumference,
+				strokeDashoffset: offset,
+			}}
+			transform={`rotate(-90 ${size / 2} ${size / 2})`}></circle>
+		<text
+			x={size / 2}
+			y={size / 2}
+			dy='0.35em'
+			text-anchor='middle'
+			dominant-baseline='middle'
+			fill={`${color}`}
+			class='text-center w-7 h-5 text-sm m-2 font-bold'>
+			{value} %
+		</text>
+	</svg>
+</div>
