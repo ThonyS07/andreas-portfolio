@@ -6,10 +6,9 @@
 
 const { title, description } = Astro.props;
 
-import Navbar from "../components/navbar/Navbar.astro";
+
 
 // import "@fontsource-variable/onest";
-
 ---
 
 <!doctype html>
@@ -20,9 +19,27 @@ import Navbar from "../components/navbar/Navbar.astro";
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<title>{title}</title>
+		<script is:inline>
+			try {
+				const stored = localStorage.getItem("theme");
+				const prefersDark = window.matchMedia(
+					"(prefers-color-scheme: dark)"
+				).matches;
+				const theme = stored || "system";
+
+				const finalTheme =
+					theme === "system" ? (prefersDark ? "dark" : "light") : theme;
+
+				document.documentElement.classList.toggle(
+					"dark",
+					finalTheme === "dark"
+				);
+				window.__theme__ = theme;
+			} catch (e) {}
+		</script>
 	</head>
 	<body>
-		<Navbar />
+	
 		<slot />
 	</body>
 </html>
@@ -47,10 +64,7 @@ import Navbar from "../components/navbar/Navbar.astro";
 		font-weight: 700;
 	}
 	html {
-
 		background: #151a36;
-		font-family:
-			"Onest Variable",system-ui,
-			sans-serif;
+		font-family: "Onest Variable", system-ui, sans-serif;
 	}
 </style>
