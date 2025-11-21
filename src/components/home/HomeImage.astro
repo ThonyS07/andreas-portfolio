@@ -1,0 +1,27 @@
+---
+import profileImage from "../../assets/img/profileAndrea.jpg";
+import profileImageTablet from "../../assets/img/profileAndreaTablet.png";
+import profileImageDesktopLarge from "../../assets/img/profileImageDesktopLarge.png";
+---
+
+<div>
+	<div class='hidden md:flex lg:hidden'>
+		<img src={profileImageTablet.src} alt='profile' width={372} height={365} />
+	</div>
+	<div class='hidden lg:flex xl:hidden h-[490px] w-[500px]'>
+		<img
+			src={profileImageDesktopLarge.src}
+			alt='profile'
+			width={500}
+			height={490}
+		/>
+	</div>
+	<div class='hidden xl:flex mr-[104px]'>
+		<img
+			src={profileImageDesktopLarge.src}
+			alt='profile'
+			width={564}
+			height={553}
+		/>
+	</div>
+</div>

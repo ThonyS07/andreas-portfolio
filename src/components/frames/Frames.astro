@@ -1,0 +1,11 @@
+---
+const { url } = Astro.props as { url: string };
+---
+
+<iframe
+	class='border border-gray-200'
+	width='800'
+	height='450'
+	src={url}
+	allow-fullScreen>
+</iframe>
