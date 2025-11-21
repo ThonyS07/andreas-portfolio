@@ -1,0 +1,53 @@
+---
+import { TextB1 } from "../../format/BoldTypography";
+import { TextR3 } from "../../format/RegularTypography";
+import Button from "../buttons/Button.tsx"; // ← React component
+import { LabelBlue } from "../labels/Label";
+import type { ProjectCardTypes } from "../../types/ProjectCardTypes";
+
+
+const { titulo, tags, text, buttonText, image, buttonLink } = Astro.props as ProjectCardTypes;
+---
+
+<div class="flex flex-col items-start w-[280px] h-[465px] 
+		p-7 rounded-[8px] shadow-[4px_4px_20px_0_#4b506b] bg-blanco dark:shadow-[4px_4px_20px_0_#b997f9] dark:bg-github">
+
+  <!-- Imagen -->
+  <div class="mb-6">
+    <img 
+      src={image.src}
+      alt="projectImage"
+      class="w-[226px] h-[161px] object-cover aspect-square"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Título -->
+  <div class="mb-4">
+    <TextB1>{titulo}</TextB1>
+  </div>
+
+  <!-- Tags -->
+  <div class="flex flex-wrap mb-4 gap-2">
+    {tags.map((tag) => (
+      <div>
+        <LabelBlue>{tag}</LabelBlue>
+      </div>
+    ))}
+  </div>
+
+  <!-- Texto -->
+  <div class="mb-4">
+    <TextR3 client:load>{text}</TextR3>
+  </div>
+
+  <!-- Botón -->
+  <div>
+    <a href={buttonLink}>
+      <Button size="l" client:load>
+        {buttonText}
+      </Button>
+    </a>
+  </div>
+
+</div>

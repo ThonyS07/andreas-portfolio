@@ -1,0 +1,27 @@
+---
+import { TextB1 } from "../../../format/BoldTypography";
+import { TextR2, TextR3 } from "../../../format/RegularTypography";
+import type { HomeCardTypes } from "../../../types/HomeCardTypes";
+
+
+const {children, text, titulo} = Astro.props as HomeCardTypes;
+---
+
+		<div class='sm:w-[328px] sm:h-[202px]  md:w-[328px] md:h-[202px] xl:w-[360px] xl:h-[220px] lg:w-[270px] lg:h-[202px]  p-[27px] rounded-4 dark:shadow-[4px_4px_20px_0_#b997f9] dark:bg-github shadow-[4px_4px_20px_0_#4b506b]'>
+			<div>
+				<div class="h-5 w-22">{children}</div>
+			</div>
+			<div class='my-4 flex xl:hidden'>
+				<TextB1>{titulo}</TextB1>
+			</div>
+			<div class=' flex xl:hidden'>
+				<TextR3>{text}</TextR3>
+			</div>
+			<div class='my-4 xl:flex hidden'>
+				<TextB1>{titulo}</TextB1>
+			</div>
+			<div class=' xl:flex hidden'>
+				<TextR2>{text}</TextR2>
+			</div>
+		</div>
+
