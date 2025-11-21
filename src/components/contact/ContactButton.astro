@@ -1,0 +1,13 @@
+---
+import type { ImageMetadata } from "astro";
+import type { ContactButtonTypes } from "../../types/ContactButtonTypes";
+
+const { contactLink, buttonColor, image } = Astro.props as ContactButtonTypes;
+---
+
+<a href={contactLink} target='_blank' rel='noopener noreferrer'>
+	<div
+		class={`w-16 h-16 rounded-full ${buttonColor}  border-[3px] flex justify-center items-center `}>
+		<img src={image.src} alt='contact' width={32.5} height={32.5} />
+	</div></a
+>
