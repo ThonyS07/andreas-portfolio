@@ -1,0 +1,31 @@
+---
+import type { ImageMetadata } from "astro";
+import ProjectPageTitle from "./ProjectPageTitle.astro";
+import ProjectPageDescription from "./ProjectPageDescription.astro";
+import ProjectPageImage from "./ProjectPageImage.astro";
+
+type ProjectPageContentProps = {
+	title: string;
+	description: string;
+	image: ImageMetadata;
+};
+
+const { title, description, image } = Astro.props as ProjectPageContentProps;
+---
+
+<div class='flex flex-col md:flex-row justify-between items-center gap-6 '>
+	<div class='md:w-[50%]'>
+		<div class='flex w-full sm:mt-4'>
+			<ProjectPageTitle title={title} />
+		</div>
+		<div class='flex justify-center w-full items-center md:hidden'>
+			<img alt='profile' src={image.src} width={180} height={201} />
+		</div>
+		<div class='flex justify-center w-full'>
+			<ProjectPageDescription description={description} />
+		</div>
+	</div>
+	<div>
+		<ProjectPageImage image={image} />
+	</div>
+</div>

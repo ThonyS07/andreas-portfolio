@@ -1,0 +1,21 @@
+---
+import type { ImageMetadata } from "astro";
+
+type ProjectPageImageProps = {
+	image: ImageMetadata;
+};
+
+const { image } = Astro.props as ProjectPageImageProps;
+---
+
+<div>
+	<div class='hidden md:flex lg:hidden'>
+		<img src={image.src} alt='profile' width={416} height={226} />
+	</div>
+	<div class='hidden lg:flex xl:hidden w-[564px] h-[307px]'>
+		<img src={image.src} alt='profile' width={564} height={307} />
+	</div>
+	<div class='hidden xl:flex mr-[104px]'>
+		<img src={image.src} alt='profile' width={744} height={405} />
+	</div>
+</div>

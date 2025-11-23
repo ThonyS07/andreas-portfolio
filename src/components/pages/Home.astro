@@ -1,5 +1,31 @@
 ---
 import Navbar from "../navbar/Navbar";
+import ContactWrapper from "../contact/ContactWrapper.astro";
+import HomeContent from "../home/HomeContent.astro";
+import AboutMe from "../profile/AboutMe.astro";
+import Projects from "../projects/Projects.astro";
 ---
-<div ></div>
-<Navbar client:load/>
+
+
+<div class='w-full dark:bg-negro3'>
+	<Navbar client:load />
+	<div
+		class='w-full dark:bg-negro3 sm:px-4 md:px-11 lg:px-[107px] xl:px-[204px] pb-1'>
+		<section id='inicio'>
+			<HomeContent />
+		</section>
+		<div class=' sm:px-25 md:px-42 lg:px-52 xl:px-104'>
+			<section id='sobre mi'>
+				<AboutMe />
+			</section>
+			<section id='mis proyectos'>
+				<Projects />
+			</section>
+			<div class='flex-col justify-center items-center'>
+				<section id='contactame'>
+					<ContactWrapper />
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+---
+import Navbar from "../navbar/Navbar";
+import bancaImage from "../../assets/img/porta/Banca/Appbancaria.png";
+import ProjectPageContent from "../projectsPage/ProjectPageContent.astro";
+import ProjectPageAlcance from "../projectsPage/ProjectPageAlcance.astro";
+
+const stakeholders = [
+	"Product owner",
+	"Especialista en productos",
+	"Area legal y de MKT",
+];
+const metodologia = ["Lean UX", "Scrum"];
+const equipo = ["1 UX Designers", "1 UI Designer", "1 Full Stack Developer "];
+const kpis = [
+	"Tasa de conversión",
+	"Tasa de retención",
+	"Aumento de pedidos por App",
+];
+---
+
+<div>
+	<div class='w-full dark:bg-negro3'>
+		<Navbar client:load />
+		<div
+			class='w-full dark:bg-negro3 sm:px-4 md:px-11 lg:px-[107px] xl:px-[204px] pb-1'>
+			<ProjectPageContent
+				title='Bxl Banca empresas'
+				image={bancaImage}
+				description='Mi experiencia dice Banca, y no es casualidad, este es un proyecto que pude construir en poco tiempo y del cual me siento orgullosa. En la actualidad Banca empresas es el sector con menos soluciones tecnológicas y curiosamente el que más retribución económica brinda a los bancos.'
+			/>
+			<ProjectPageAlcance
+				embedTitle='Banca empresas'
+				stakeHolders={stakeholders}
+				metodologia={metodologia}
+				equipo={equipo}
+				kpis={kpis}
+				embedURL='https://embed.figma.com/design/Uw0yNGuUrdRY5t9ocRKyfI/Banca-empresas?node-id=0-1&embed-host=share'
+			/>
+		</div>
+	</div>
+</div>

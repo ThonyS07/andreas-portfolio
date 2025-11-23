@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./progress.module.css";
 import type { ProgressTypes } from '../../types/ProgressTypes'; 
 import { useTheme, getTheme } from "../../lib/theme";
 import { TextSB2, TextSB3 } from "../../format/SemiBoldTypography";
@@ -57,7 +56,9 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 					cy={size / 2}
 					r={radius}
 					strokeWidth={grosor}
-					className={`fill-none stroke-[#8249ef]   stroke-line ${styles.circleProgress}`}
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					className={`fill-none stroke-[#8249ef] `}
 					style={{
 						strokeDasharray: dashArray,
 						strokeDashoffset: dashOffset,
