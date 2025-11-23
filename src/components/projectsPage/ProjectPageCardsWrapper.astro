@@ -1,0 +1,42 @@
+---
+import ProjectPageAlcanceCard from "./projectPageAlcanceCard/ProjectPageAlcanceCard.astro";
+import StakeIcon from "./projectPageAlcanceCard/icons/stakeIcon";
+import MetodoIcon from "./projectPageAlcanceCard/icons/metodoIcon";
+import EquipoIcon from "./projectPageAlcanceCard/icons/equipoIcon";
+import KpisIcon from "./projectPageAlcanceCard/icons/kpisIcon";
+
+type ProjectPageAlcanceCardsProps = {
+	stakeHolders: string;
+	metodologia: string;
+	equipo: string;
+	kpis: string;
+};
+const { stakeHolders, metodologia, equipo, kpis } =
+	Astro.props as ProjectPageAlcanceCardsProps;
+---
+
+<div>
+	<div
+		class='flex items-center justify-center flex-col w-full md:w-[684px] lg:w-full gap-6 md:flex-row xl:mx-[104px] md:flex-wrap lg:flex-nowrap'>
+		<div>
+			<ProjectPageAlcanceCard titulo='Stakeholder' text={stakeHolders}>
+				<StakeIcon />
+			</ProjectPageAlcanceCard>
+		</div>
+		<div class='my-0 '>
+			<ProjectPageAlcanceCard titulo='Metodología' text={metodologia}>
+				<MetodoIcon />
+			</ProjectPageAlcanceCard>
+		</div>
+		<div class='my-0 '>
+			<ProjectPageAlcanceCard titulo='Equipo ' text={equipo}>
+				<EquipoIcon />
+			</ProjectPageAlcanceCard>
+		</div>
+		<div class=''>
+			<ProjectPageAlcanceCard titulo="KPI's" text={kpis}>
+				<KpisIcon />
+			</ProjectPageAlcanceCard>
+		</div>
+	</div>
+</div>

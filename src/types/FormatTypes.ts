@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 export type TypographyTypes = {
-	children: ReactNode;
+	children: string | ReactNode;
 };
 export type FontThemeUnit = {
 	xs3?: string;

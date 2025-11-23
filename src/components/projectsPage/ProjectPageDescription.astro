@@ -1,0 +1,14 @@
+---
+import { TextR2 } from "../../format/RegularTypography";
+
+type Props = {
+	description: string;
+};
+const { description } = Astro.props as Props;
+---
+
+<div class='flex flex-col w-full mt-4 m-0 gap-2'>
+	<TextR2>
+		{description}
+	</TextR2>
+</div>

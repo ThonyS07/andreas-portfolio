@@ -1,0 +1,62 @@
+---
+import ProjectCard from "../cards/ProjectCard.astro";
+import bancaImage from "/src/assets/img/Appbancaria.png";
+import seguros from "/src/assets/img/Webparaseguros.png";
+import animalista from "/src/assets/img/Webparaveterinarias.png";
+import transporte from "/src/assets/img/porta/Taxis/01 01 01 portada.png";
+---
+
+<div
+	class='flex xl:w-[90%] sm:flex-col md:flex-row sm:gap-6  lg:gap-[40] xl:gap-[68px] flex-wrap items-center  justify-center'>
+	<ProjectCard
+		titulo='App para taxis'
+		tags={["UX", "UI", "Referencia"]}
+		text='Mis inicios en el mundo del UX fueron muy enriquecedores, este es un proyecto real del 2019, con mejoras basadas en mi experiencia.'
+		buttonText='Conoce más'
+		image={transporte}
+		buttonLink='/taxis'
+	/>
+	<ProjectCard
+		titulo='BxI Banca empresas'
+		tags={["UX", "UI", "Referencia"]}
+		text='Después de algunos años trabajando para 3 bancos, decidí tomar de referencia mi experiencia para poner en práctica todo lo aprendido.'
+		buttonText='Conoce más'
+		image={bancaImage}
+		buttonLink='/banca'
+	/>
+	<ProjectCard
+		titulo='Web para veterinarias'
+		tags={["UX", "UI", "Personal"]}
+		text='Mi amor a los animales y las visitas a veterinarios de mis mascotas me llevaron a crear una plataforma para veterinarias y animalistas.'
+		buttonText='Conoce más'
+		image={animalista}
+		buttonLink='https://www.figma.com/proto/18hCQUPmcXH7dpGCVBv6GR/Portfolio?type=design&node-id=429-1989&t=Afv7r4qGCqTT95ua-1&scaling=min-zoom&page-id=104%3A497&mode=design'
+	/>
+	<ProjectCard
+		titulo='Web para seguros'
+		tags={["UX", "UI", "Referencia"]}
+		text='Una nueva versión de mi trabajo en una importante aseguradora Peruana; explicando el proceso de como fue construida.'
+		buttonText='Conoce más'
+		image={seguros}
+		buttonLink='https://www.figma.com/proto/18hCQUPmcXH7dpGCVBv6GR/Portfolio?type=design&node-id=429-2055&t=16JuwJ6JvDtohuAn-1&scaling=min-zoom&page-id=104%3A497&mode=design'
+	/>
+
+	{
+		/* <ProjectCard
+				titulo='Ecommerce'
+				tags={["UI", "Personal"]}
+				text='Estoy a nada de iniciar un nuevo emprendimiento, con este proyecto busco facilidad al momento de ofrecer los productos a mis clientes.'
+				buttonText='Conoce más'
+				image={ecommerce}
+				buttonLink='https://www.figma.com/proto/18hCQUPmcXH7dpGCVBv6GR/Portfolio?type=design&node-id=429-1910&t=TK7Es958hrgkvlDm-1&scaling=min-zoom&page-id=104%3A497&mode=design'
+			/>
+			<ProjectCard
+				titulo='ChatBot para delivery'
+				tags={["Conversacional", "Personal"]}
+				text='He tenido experiencia creando ChatBots, me parece importante refrescar mis conocimientos dándole vida a uno nuevo en mi portafolio.'
+				buttonText='Conoce más'
+				image={chatbot}
+				buttonLink='https://www.figma.com/proto/18hCQUPmcXH7dpGCVBv6GR/Portfolio?type=design&node-id=429-2121&t=gPKJPvxFFgcxJyJD-1&scaling=min-zoom&page-id=104%3A497&mode=design'
+			/> */
+	}
+</div>
