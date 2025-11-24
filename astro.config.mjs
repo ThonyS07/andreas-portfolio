@@ -10,7 +10,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://THonys07.github.io",
-	base: "andrea_portfolio",
+	base: "andreas_portfolio",
 	vite: {
 		server: {
 			headers: {
