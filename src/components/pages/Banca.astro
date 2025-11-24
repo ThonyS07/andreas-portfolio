@@ -1,5 +1,5 @@
 ---
-import Navbar from "../navbar/Navbar";
+import Layout from "../../layouts/Layout.astro";
 import bancaImage from "../../assets/img/porta/Banca/Appbancaria.png";
 import ProjectPageContent from "../projectsPage/ProjectPageContent.astro";
 import ProjectPageAlcance from "../projectsPage/ProjectPageAlcance.astro";
@@ -12,21 +12,19 @@ const stakeholders = [
 const metodologia = ["Lean UX", "Scrum"];
 const equipo = ["1 UX Designers", "1 UI Designer", "1 Full Stack Developer "];
 const kpis = [
-	"Tasa de conversión",
-	"Tasa de retención",
-	"Aumento de pedidos por App",
+	"El prototipo fue validado por usuarios empresa, destacando la claridad y las nuevas funciones.",
 ];
 ---
 
-<div>
+<Layout>
 	<div class='w-full dark:bg-negro3'>
-		<Navbar client:load />
+		<!-- <Navbar client:load /> -->
 		<div
 			class='w-full dark:bg-negro3 sm:px-4 md:px-11 lg:px-[107px] xl:px-[204px] pb-1'>
 			<ProjectPageContent
-				title='Bxl Banca empresas'
+				title='Rediseño del flujo de transferencias (BxI)'
 				image={bancaImage}
-				description='Mi experiencia dice Banca, y no es casualidad, este es un proyecto que pude construir en poco tiempo y del cual me siento orgullosa. En la actualidad Banca empresas es el sector con menos soluciones tecnológicas y curiosamente el que más retribución económica brinda a los bancos.'
+				description='Mi experiencia dice Banca, y no es casualidad, este es un proyecto que pude construir en poco tiempo y del cual me siento orgullosa. Diseñé un nuevo flujo de transferencias para la Banca por Internet empresas (BxI), reemplazando una plataforma antigua y poco intuitiva por una experiencia moderna, escalable y alineada al negocio.'
 			/>
 			<ProjectPageAlcance
 				embedTitle='Banca empresas'
@@ -38,4 +36,4 @@ const kpis = [
 			/>
 		</div>
 	</div>
-</div>
+</Layout>

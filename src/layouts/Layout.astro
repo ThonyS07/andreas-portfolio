@@ -3,21 +3,25 @@
 // 	title: string;
 // 	description: string;
 // }
+import Navbar from '../components/navbar/Navbar';
+import "../styles/global.css";
 
 const { title, description } = Astro.props;
-
-
 
 // import "@fontsource-variable/onest";
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='en' class='font-sans'>
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='description' content={description} />
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<link
+			href='https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap'
+			rel='stylesheet'
+		/>
 		<title>{title}</title>
 		<script is:inline>
 			try {
@@ -39,7 +43,7 @@ const { title, description } = Astro.props;
 		</script>
 	</head>
 	<body>
-	
+		<Navbar  client:load />
 		<slot />
 	</body>
 </html>
@@ -47,24 +51,5 @@ const { title, description } = Astro.props;
 <style is:global>
 	:root {
 		color-scheme: dark;
-	}
-	html {
-		font-family: "Onest Variable", sans-serif;
-	}
-	p {
-		color: rgba(255, 255, 255, 0.9);
-		line-height: 1.4;
-		margin-bottom: 1em;
-		font-weight: 100;
-		font-size: 1em;
-		letter-spacing: 0.5px;
-	}
-	p strong {
-		color: white;
-		font-weight: 700;
-	}
-	html {
-		background: #151a36;
-		font-family: "Onest Variable", system-ui, sans-serif;
 	}
 </style>

@@ -1,6 +1,9 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"); */
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
+
+  --font-sans: "Lato", sans-serif;
   /* PURPLES */
   --color-purple10: #F8F8FF;
   --color-purple9:  #E1E1FF;
@@ -55,8 +58,6 @@
 
   --radius-lg: 28px;
   --radius-full: 999px;
-
-  --font-lato: "lato", sans;
 
   --text-xs: 12px;
   --text-sm: 14px;

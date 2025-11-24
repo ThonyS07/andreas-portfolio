@@ -1,5 +1,5 @@
 ---
-import Navbar from "../navbar/Navbar";
+import Layout from "../../layouts/Layout.astro";
 import taxiImage from "../../assets/img/porta/Taxis/01 01 01 portada.png";
 import ProjectPageContent from "../projectsPage/ProjectPageContent.astro";
 import ProjectPageAlcance from "../projectsPage/ProjectPageAlcance.astro";
@@ -7,25 +7,29 @@ import ProjectPageAlcance from "../projectsPage/ProjectPageAlcance.astro";
 const stakeholders = ["Gerente General taxitel", "Área de Marketing"];
 const metodologia = ["Design thinking", "Scrum"];
 const equipo = ["2 UX/UI Designers", "1 Full Stack Developer"];
-const kpis = ["Tasa de conversión", "Tasa de retención", "Aumento pedidos"];
+const kpis = [
+	"El nuevo diseño buscó migrar solicitudes desde la central telefónica hacia el app, creando una experiencia más moderna, confiable y competitiva."
+];
 ---
 
-<div class='w-full dark:bg-negro3'>
-	<Navbar client:load />
-	<div
-		class='w-full dark:bg-negro3 sm:px-4 md:px-11 lg:px-[107px] xl:px-[204px] pb-1'>
-		<ProjectPageContent
-			title='App para taxis'
-			image={taxiImage}
-			description='...'
-		/>
+<Layout>
+	<div class='w-full dark:bg-negro3'>
+		<!-- <Navbar client:load /> -->
+		<div
+			class='w-full dark:bg-negro3 sm:px-4 md:px-11 lg:px-[107px] xl:px-[204px] pb-1'>
+			<ProjectPageContent
+				title='Rediseño del App de Conductores y Pasajeros'
+				image={taxiImage}
+				description='Taxitel es una empresa de taxis ubicada en Arequipa, la cual conecta desde hace muchos años a pasajeros y conductores.Rediseñé los flujos principales del app de Taxitel tanto para pasajeros como para conductores, enfocándome en la solicitud de viaje y la respuesta del conductor.'
+			/>
 
-		<ProjectPageAlcance
-			stakeHolders={stakeholders}
-			metodologia={metodologia}
-			equipo={equipo}
-			kpis={kpis}
-			embedURL='https://embed.figma.com/design/xGYDzgO1snXpYLrvjCrulF/Taxitel?node-id=0-1&embed-host=share'
-		/>
+			<ProjectPageAlcance
+				stakeHolders={stakeholders}
+				metodologia={metodologia}
+				equipo={equipo}
+				kpis={kpis}
+				embedURL='https://embed.figma.com/design/xGYDzgO1snXpYLrvjCrulF/Taxitel?node-id=0-1&embed-host=share'
+			/>
+		</div>
 	</div>
-</div>
+</Layout>

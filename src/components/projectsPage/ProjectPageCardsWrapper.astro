@@ -1,9 +1,12 @@
 ---
 import ProjectPageAlcanceCard from "./projectPageAlcanceCard/ProjectPageAlcanceCard.astro";
-import StakeIcon from "./projectPageAlcanceCard/icons/stakeIcon";
-import MetodoIcon from "./projectPageAlcanceCard/icons/metodoIcon";
-import EquipoIcon from "./projectPageAlcanceCard/icons/equipoIcon";
-import KpisIcon from "./projectPageAlcanceCard/icons/kpisIcon";
+import StakeIcon from "./projectPageAlcanceCard/icons/stakeIcon.astro";
+import MetodoIcon from "./projectPageAlcanceCard/icons/metodoIcon.astro";
+import EquipoIcon from "./projectPageAlcanceCard/icons/equipoIcon.astro";
+import KpisIcon from "./projectPageAlcanceCard/icons/kpisIcon.astro";
+import ImpactoIcon from './projectPageAlcanceCard/icons/impactoIcon.astro';
+
+
 
 type ProjectPageAlcanceCardsProps = {
 	stakeHolders: string[];
@@ -19,23 +22,23 @@ const { stakeHolders, metodologia, equipo, kpis } =
 	<div
 		class='flex items-center justify-center flex-col w-full md:w-[684px] lg:w-full gap-6 md:flex-row xl:mx-[104px] md:flex-wrap lg:flex-nowrap'>
 		<div>
-			<ProjectPageAlcanceCard titulo='Stakeholder' text={stakeHolders}>
-				<StakeIcon client:load />
+			<ProjectPageAlcanceCard title='Stakeholder' text={stakeHolders}>
+				<StakeIcon />
 			</ProjectPageAlcanceCard>
 		</div>
 		<div class='my-0'>
-			<ProjectPageAlcanceCard titulo='Metodología' text={metodologia}>
-				<MetodoIcon client:load />
+			<ProjectPageAlcanceCard title='Metodología' text={metodologia}>
+				<MetodoIcon  />
 			</ProjectPageAlcanceCard>
 		</div>
 		<div class='my-0'>
-			<ProjectPageAlcanceCard titulo='Equipo ' text={equipo}>
-				<EquipoIcon client:load />
+			<ProjectPageAlcanceCard title='Equipo ' text={equipo}>
+				<EquipoIcon  />
 			</ProjectPageAlcanceCard>
 		</div>
 		<div class=''>
-			<ProjectPageAlcanceCard titulo="KPI's" text={kpis}>
-				<KpisIcon client:load />
+			<ProjectPageAlcanceCard title="Impacto" text={kpis}>
+				<ImpactoIcon  />
 			</ProjectPageAlcanceCard>
 		</div>
 	</div>
