@@ -35,7 +35,7 @@ const NavBar = () => {
 			maxWidth='full'>
 			<div className='flex justify-start'>
 				<NavbarBrand>
-					<a href='/'>
+					<a href={import.meta.env.BASE_URL}>
 						<Logo />
 					</a>
 				</NavbarBrand>
