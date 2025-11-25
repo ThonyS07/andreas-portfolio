@@ -1,0 +1,29 @@
+---
+import ProjectPageContextCard from "./projectPageContextCard/ProjectPageContextCard.astro";
+import ProblemaIcon from "./projectPageContextCard/icons/ProblemaIcon.astro";
+import ObjetivoIcon from "./projectPageContextCard/icons/ObjetivoIcon.astro";
+import type {
+	list,
+	ProjectPageContextCardWrapperProps,
+} from "../../types/ProjectPageContextCardTypes";
+
+
+const { problemSection, objectiveSection } =
+	Astro.props as ProjectPageContextCardWrapperProps;
+---
+
+<div>
+	<div
+		class='flex items-center justify-center flex-col w-full md:w-[684px] lg:w-full gap-6 md:flex-row xl:mx-[104px] md:flex-wrap lg:flex-nowrap'>
+		<div>
+			<ProjectPageContextCard title='Problema' section={problemSection}>
+				<ProblemaIcon />
+			</ProjectPageContextCard>
+		</div>
+		<div class='my-0'>
+			<ProjectPageContextCard title='Objetivo' section={objectiveSection}>
+				<ObjetivoIcon />
+			</ProjectPageContextCard>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+---
+import { HeaderBl5 } from "../../format/BlackTypography";
+import Frames from "../frames/Frames.astro";
+import type { ProjectPageFrameTypes } from "../../types/ProjectPageFrameTypes";
+
+const { embedURL, embedTitle, frameURL, frameTitle } =
+	Astro.props as ProjectPageFrameTypes;
+---
+<div class="flex flex-col">
+
+	<HeaderBl5>{embedTitle}</HeaderBl5>
+	<div class='w-full flex justify-evenly mt-8 mb-14'>
+		{/* CONTENEDOR RESPONSIVE */}
+		<div>
+			<div class='w-full max-w-5xl'>
+				<Frames url={embedURL} />
+			</div>
+		</div>
+		
+		{frameTitle && <HeaderBl5>{frameTitle}</HeaderBl5>}
+		
+		{/* CONTENEDOR RESPONSIVE */}
+		<div>
+			<div class='w-full max-w-5xl'>
+				{frameURL && <Frames url={frameURL} />}
+			</div>
+		</div>
+	</div>
+	
+</div>

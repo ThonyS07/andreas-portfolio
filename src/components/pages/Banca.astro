@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import bancaImage from "../../assets/img/porta/Banca/Appbancaria.png";
 import ProjectPageContent from "../projectsPage/ProjectPageContent.astro";
 import ProjectPageAlcance from "../projectsPage/ProjectPageAlcance.astro";
+import ProjectPageContext from "../projectsPage/ProjectPageContext.astro";
+import ProjectPageFrame from "../projectsPage/ProjectPageFrame.astro";
 
 const stakeholders = [
 	"Product owner",
@@ -13,6 +15,42 @@ const metodologia = ["Lean UX", "Scrum"];
 const equipo = ["1 UX Designers", "1 UI Designer", "1 Full Stack Developer "];
 const kpis = [
 	"El prototipo fue validado por usuarios empresa, destacando la claridad y las nuevas funciones.",
+];
+const problemSection = [
+	{
+		listTitle:
+			"La banca por internet para empresas llevaba años sin una actualización profunda. Su diseño obsoleto y la falta de métricas hacían difícil identificar puntos de dolor.  Los usuarios corporativos no entendían cómo realizar operaciones básicas —como transferencias— lo que generaba:",
+		listItems: [
+			"Baja conversión en operaciones digitales.",
+			"Dependencia excesiva del canal telefónico, saturando a los ejecutivos.",
+			"Riesgo operativo, ya que muchas operaciones quedaban incompletas o generaban reclamos.",
+		],
+	},
+	{
+		listTitle: "Desafío del negocio",
+		listItems: [
+			"El banco necesitaba modernizar la experiencia y reducir costos operativos a través de una plataforma más intuitiva.",
+		],
+	},
+];
+
+const objectiveSection = [
+	{
+		listTitle: "Objetivo del negocio",
+		listItems: [
+			"Incrementar el uso de la BxI empresas para reducir llamadas y tickets.",
+			"Unificar y modernizar la experiencia visual de la plataforma.",
+			"Habilitar nuevas funcionalidades que el negocio necesitaba empujar.",
+		],
+	},
+	{
+		listTitle: "Objetivo del usuario",
+		listItems: [
+			"Realizar transferencias de manera rápida, clara y sin fricciones.",
+			"Tener visibilidad del estado y detalle de cada paso.",
+			"Sentirse en control y confiado en un proceso sensible como el manejo de dinero..",
+		],
+	},
 ];
 ---
 
@@ -32,6 +70,13 @@ const kpis = [
 				metodologia={metodologia}
 				equipo={equipo}
 				kpis={kpis}
+			/>
+			<ProjectPageContext
+				problemSection={problemSection}
+				objectiveSection={objectiveSection}
+			/>
+			<ProjectPageFrame
+				embedTitle='Proceso de rediseño'
 				embedURL='https://embed.figma.com/design/Uw0yNGuUrdRY5t9ocRKyfI/Banca-empresas?node-id=0-1&embed-host=share'
 			/>
 		</div>

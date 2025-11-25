@@ -3,8 +3,5 @@ export type ProjectPageAlcanceProps = {
 	metodologia: string[];
 	equipo: string[];
 	kpis: string[];
-	frameURL?: string;
-	embedURL: string;
-	embedTitle: string;
-	frameTitle?: string;
+	
 };

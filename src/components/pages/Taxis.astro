@@ -3,12 +3,60 @@ import Layout from "../../layouts/Layout.astro";
 import taxiImage from "../../assets/img/porta/Taxis/01 01 01 portada.png";
 import ProjectPageContent from "../projectsPage/ProjectPageContent.astro";
 import ProjectPageAlcance from "../projectsPage/ProjectPageAlcance.astro";
+import ProjectPageContext from '../projectsPage/ProjectPageContext.astro';
+import ProjectPageFrame from '../projectsPage/ProjectPageFrame.astro';
 
 const stakeholders = ["Gerente General taxitel", "Área de Marketing"];
 const metodologia = ["Design thinking", "Scrum"];
 const equipo = ["2 UX/UI Designers", "1 Full Stack Developer"];
 const kpis = [
-	"El nuevo diseño buscó migrar solicitudes desde la central telefónica hacia el app, creando una experiencia más moderna, confiable y competitiva."
+	"El nuevo diseño buscó migrar solicitudes desde la central telefónica hacia el app, creando una experiencia más moderna, confiable y competitiva.",
+];
+const problemSection = [
+	{
+		listTitle:
+			"Para el 2019 Taxitel operaba bajo un modelo mixto: los pasajeros podían pedir taxis por teléfono o por app, y los conductores pagaban un plan mensual para acceder a beneficios. Sin embargo, el sistema presentaba varios problemas:",
+		listItems: [
+			"70% de las solicitudes se realizaban por central telefónica, un canal costoso.",
+			"Los conductores no querían usar el app, por lo que no veían valor en pagar los planes que incluían la app.",
+			"La aplicación estaba obsoleta, poco intuitiva y visualmente desactualizada.",
+			"Las operadoras tenían una carga laboral intensa y eran caras de mantener.",
+		],
+	},
+	{
+		listTitle: "Desafío del negocio",
+		listItems: [
+			"La empresa necesitaba incrementar el uso del app, reducir costos de call center y mejorar la experiencia para ambos lados del marketplace. Para eso era clave rediseñar los flujos centrales del viaje.",
+		],
+	},
+];
+
+const objectiveSection = [
+	{
+		listTitle: "Objetivo del negocio",
+		listItems: [
+			"Aumentar la adopción del app por parte de conductores y pasajeros.",
+			"Reducir la dependencia de la central telefónica.",
+			"Hacer que los planes de afiliación con app fueran más valiosos.",
+			"Modernizar la experiencia visual y funcional para competir con apps como Uber y Cabify.",
+		],
+	},
+	{
+		listTitle: "Objetivo del usuario pasajero",
+		listItems: [
+			"Pedir un taxi de forma clara y rápida.",
+			"Ver información confiable del conductor y del viaje.",
+			"Sentirse seguro en la experiencia.",
+		],
+	},
+	{
+		listTitle: "Objetivo del usuario conductor",
+		listItems: [
+			"Recibir información clara y suficiente antes de aceptar un viaje.",
+			"Evitar rechazos provocados por direcciones incorrectas o falta de comunicación.",
+			"Sentir que la plataforma los respalda y no favorece solo al pasajero.",
+		],
+	},
 ];
 ---
 
@@ -28,6 +76,14 @@ const kpis = [
 				metodologia={metodologia}
 				equipo={equipo}
 				kpis={kpis}
+				embedURL='https://embed.figma.com/design/xGYDzgO1snXpYLrvjCrulF/Taxitel?node-id=0-1&embed-host=share'
+			/>
+			<ProjectPageContext
+				problemSection={problemSection}
+				objectiveSection={objectiveSection}
+			/>
+			<ProjectPageFrame
+				embedTitle='Proceso de rediseño'
 				embedURL='https://embed.figma.com/design/xGYDzgO1snXpYLrvjCrulF/Taxitel?node-id=0-1&embed-host=share'
 			/>
 		</div>

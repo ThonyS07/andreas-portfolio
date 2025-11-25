@@ -8,21 +8,10 @@ const {
 	stakeHolders,
 	metodologia,
 	equipo,
-	kpis,
-	frameURL,
-	embedURL,
-	embedTitle,
-	frameTitle,
+	kpis,      
 } = Astro.props as ProjectPageAlcanceProps;
 
-const renderFrame = (frameURL: string): string => {
-	if (!frameURL) return "";
-	return frameURL;
-};
-const renderFrameTitle = (frameTitle: string): string => {
-	if (!frameTitle) return "";
-	return frameTitle;
-};
+
 ---
 
 <div class='flex flex-col w-full sm:my-12 md:my-16 xl:my-14'>
@@ -36,21 +25,5 @@ const renderFrameTitle = (frameTitle: string): string => {
 			kpis={kpis}
 		/>
 	</div>
-	<HeaderBl5>{embedTitle}</HeaderBl5>
-
-	{/* CONTENEDOR RESPONSIVE */}
-	<div class='w-full flex justify-center mt-6 mb-14'>
-		<div class='w-full max-w-5xl'>
-			<Frames url={embedURL} />
-		</div>
-	</div>
-
-	{frameTitle && <HeaderBl5>{frameTitle}</HeaderBl5>}
-
-	{/* CONTENEDOR RESPONSIVE */}
-	<div class='w-full flex justify-center mt-6 mb-14'>
-		<div class='w-full max-w-5xl'>
-			{frameURL && <Frames url={frameURL} />}
-		</div>
-	</div>
+	
 </div>

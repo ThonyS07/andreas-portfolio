@@ -1,0 +1,20 @@
+---
+import { HeaderBl5 } from "../../format/BlackTypography";
+import ProjectPageContextCardWrapper from "./ProjectPageContextCardWrapper.astro";
+import Frames from "../frames/Frames.astro";
+import type { ProjectPageContextCardWrapperProps } from "../../types/ProjectPageContextCardTypes";
+
+const { objectiveSection, problemSection } =
+	Astro.props as ProjectPageContextCardWrapperProps;
+---
+
+<div class='flex flex-col w-full sm:my-12 md:my-16 xl:my-14'>
+	<HeaderBl5>Contexto</HeaderBl5>
+	<div class='flex flex-col max-[768px]:mb-10 mb-14 w-full items-center'>
+		<div class='mb-8 flex flex-col items-center'></div>
+		<ProjectPageContextCardWrapper
+			problemSection={problemSection}
+			objectiveSection={objectiveSection}
+		/>
+	</div>
+</div>

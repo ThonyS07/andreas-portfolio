@@ -8,14 +8,14 @@ const { children, section, title } = Astro.props as ProjectPageContextCardTypes;
 ---
 
 <div
-	class='sm:w-[328px] sm:h-[202px] md:w-[328px] md:h-[202px] xl:w-[584px] xl:h-[480px] lg:w-[744px] lg:h-[500px] p-[27px] rounded-2xl dark:shadow-[4px_4px_20px_0_#b997f9] dark:bg-github shadow-[4px_4px_20px_0_#4b506b]'>
+	class='sm:w-[328px] sm:h-[202px] md:w-[328px] md:h-[202px] xl:w-[584px] xl:h-[480px] lg:w-[560px] lg:h-[500px] p-[27px] rounded-2xl dark:shadow-[4px_4px_20px_0_#b997f9] dark:bg-github shadow-[4px_4px_20px_0_#4b506b]'>
 	<div>
 		<ProjectPageContextIcon>{children}</ProjectPageContextIcon>
 	</div>
-    <div class='my-4 flex xl:hidden'>
-        <TextB1>{title}</TextB1>
-    </div>
-	<div class='flex xl:hidden'>
+	<div class='my-4 flex xl:hidden'>
+		<TextB1>{title}</TextB1>
+	</div>
+	<div class='flex flex-col xl:hidden'>
 		{
 			section.map((grupo) => {
 				return (
@@ -35,7 +35,7 @@ const { children, section, title } = Astro.props as ProjectPageContextCardTypes;
 			})
 		}
 	</div>
-	<div class='flex xl:hidden'>
+	<div class='xl:flex xl:flex-row hidden'>
 		{
 			section.map((grupo) => {
 				return (
@@ -54,7 +54,5 @@ const { children, section, title } = Astro.props as ProjectPageContextCardTypes;
 				);
 			})
 		}
-
-		<!-- <TextR3>{text.map((text) => <li>{text}</li>)}</TextR3> -->
 	</div>
 </div>
