@@ -29,8 +29,12 @@ export default function ThemeSwitcher() {
 	if (!mounted) return null;
 
 	return (
-		<SwitchS onClick={handleThemeChange}>
-			{theme === "dark" ? <MoonIcon className='h-4 w-4' /> : <SunIcon className='h-4 w-4' />}
+		<SwitchS onClick={handleThemeChange} isSelected={theme === "dark"}>
+			{theme === "dark" ? (
+				<MoonIcon className='h-4 w-4' />
+			) : (
+				<SunIcon className='h-4 w-4' />
+			)}
 		</SwitchS>
 	);
 }

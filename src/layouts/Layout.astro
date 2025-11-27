@@ -3,7 +3,7 @@
 // 	title: string;
 // 	description: string;
 // }
-import Navbar from '../components/navbar/Navbar';
+import Navbar from "../components/navbar/Navbar";
 import "../styles/global.css";
 
 const { title, description } = Astro.props;
@@ -29,7 +29,9 @@ const { title, description } = Astro.props;
 				const prefersDark = window.matchMedia(
 					"(prefers-color-scheme: dark)"
 				).matches;
-				const theme = stored || "system";
+
+				// Si no hay tema guardado, se usa "system"
+				const theme = stored ?? "system";
 
 				const finalTheme =
 					theme === "system" ? (prefersDark ? "dark" : "light") : theme;
@@ -38,12 +40,16 @@ const { title, description } = Astro.props;
 					"dark",
 					finalTheme === "dark"
 				);
+
+				// Guardar el tema actual en una variable global por si el frontend lo necesita
 				window.__theme__ = theme;
-			} catch (e) {}
+			} catch (error) {
+				console.error("Theme init error:", error);
+			}
 		</script>
 	</head>
 	<body>
-		<Navbar  client:load />
+		<Navbar client:load />
 		<slot />
 	</body>
 </html>

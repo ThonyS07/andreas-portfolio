@@ -29,57 +29,42 @@ const NavBar = () => {
 
 	return (
 		<Navbar
-			className='dark:bg-negro1 bg-negro10  md:px-[26px] lg:px-[91px] xl:px-[186px]  sm:h-14 md:h-16 lg:h-20 lg:py-[19px]'
+			className='dark:bg-negro1 bg-negro10  md:px-[26px] lg:px-[91px] xl:px-[186px]  sm:h-14 md:h-16 lg:h-20 lg:py-[19px] sticky top-0 z-50'
 			isBordered
 			isBlurred
-			maxWidth='full'>
-			<div className='flex justify-start'>
-				<NavbarBrand>
-					<a href={import.meta.env.BASE_URL}>
-						<Logo />
-					</a>
-				</NavbarBrand>
-			</div>
-			<div className='w-8/12'>
-				<NavbarContent className='hidden lg:flex gap-4' justify='start'>
-					<Tabs
-						activeSection={activeSection}
-						onSectionClick={handleSectionClick}>
-						inicio
-					</Tabs>
-					<Tabs
-						activeSection={activeSection}
-						onSectionClick={handleSectionClick}>
-						sobre mi
-					</Tabs>
-					<Tabs
-						activeSection={activeSection}
-						onSectionClick={handleSectionClick}>
-						mis proyectos
-					</Tabs>
-					<Tabs
-						activeSection={activeSection}
-						onSectionClick={handleSectionClick}>
-						contactame
-					</Tabs>
-				</NavbarContent>
-			</div>
-			<div>
-				<NavbarContent
-					className='max-[1024px]:flex max-[1024px]:gap-6 max-[1024px]:w-[110px] max-[1024px]:h-6 max-[1024px]:flex-row max-[1024px]:justify-start max-[1024px]:items-start'
-					justify='end'>
-					<ThemeSwitcher />
-					<div className='lg:hidden w-px h-6 bg-github dark:bg-blanco '></div>
-					<div className='lg:hidden'>
-						<HamburguerButton />
-					</div>
-					<div className='hidden lg:flex'>
-						<Button onClick={handleDownloadCVPublic} size='l'>
-							Descargar CV
-						</Button>
-					</div>
-				</NavbarContent>
-			</div>
+			maxWidth='full'
+			position='sticky'>
+			<NavbarBrand className='flex-none'>
+				<a href={import.meta.env.BASE_URL}>
+					<Logo />
+				</a>
+			</NavbarBrand>
+			<NavbarContent className='hidden lg:flex gap-4 w-full' justify='center'>
+				<Tabs activeSection={activeSection} onSectionClick={handleSectionClick}>
+					inicio
+				</Tabs>
+				<Tabs activeSection={activeSection} onSectionClick={handleSectionClick}>
+					sobre mi
+				</Tabs>
+				<Tabs activeSection={activeSection} onSectionClick={handleSectionClick}>
+					mis proyectos
+				</Tabs>
+				<Tabs activeSection={activeSection} onSectionClick={handleSectionClick}>
+					contactame
+				</Tabs>
+			</NavbarContent>
+			<NavbarContent className='flex gap-6 items-center' justify='end'>
+				<ThemeSwitcher />
+				<div className='lg:hidden w-px h-6 bg-github dark:bg-blanco '></div>
+				<div className='lg:hidden'>
+					<HamburguerButton />
+				</div>
+				<div className='hidden lg:flex'>
+					<Button onClick={handleDownloadCVPublic} size='l'>
+						Descargar CV
+					</Button>
+				</div>
+			</NavbarContent>
 		</Navbar>
 	);
 };
