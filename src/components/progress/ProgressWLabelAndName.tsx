@@ -15,16 +15,14 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 	const dashArray = radius * Math.PI * 2;
 	const dashOffset = dashArray - (dashArray * value) / 100;
 	const theme = getTheme();
-	const [colorText, setColorText] = useState("#8F94B0");
-	const [colorValue, setColorValue] = useState("#1A1D2C");
+	const [textClass, setTextClass] = useState("text-negro3");
+	const [valueClass, setValueClass] = useState("text-negro3");
 
 	useEffect(() => {
-		setColorText(
-			theme === "dark" ? "text-blanco" : "text-negro3"
-		);
-		setColorValue(theme === "dark" ? "text-blanco" : "text-negro3");
+		const cls = theme === "dark" ? "text-blanco" : "text-negro3";
+		setTextClass(cls);
+		setValueClass(cls);
 	}, [theme]);
-
 	const classText =
 		size === 64
 			? " leading-5 font-semibold text-left tracking-normal text-[14px]  "
@@ -72,8 +70,8 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 					dy='0.35em'
 					textAnchor='middle'
 					dominantBaseline='middle'
-					// fill={`${colorText}`}
-					className={`${classText} ${colorText}`}>
+					fill='currentColor'
+					className={`${textClass} ${valueClass}`}>
 					{text}
 				</text>
 				<text
@@ -82,8 +80,8 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 					dy='0.35em'
 					textAnchor='middle'
 					dominantBaseline='middle'
-					fill={`${colorValue}`}
-					className={`${classValue}`}>
+					fill='currentColor'
+					className={`${textClass} ${valueClass}`}>
 					{value}%
 				</text>
 			</svg>
