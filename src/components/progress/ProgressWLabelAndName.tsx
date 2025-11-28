@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from "react";
 import type { ProgressTypes } from "../../types/ProgressTypes";
-import { getTheme } from "../../lib/theme";
-
+import { getTheme, subscribe } from "../../lib/theme";
 
 const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 	const grosor = 0.075 * size;
 	const radius = (size - grosor) / 2;
 	const dashArray = radius * Math.PI * 2;
 	const dashOffset = dashArray - (dashArray * value) / 100;
-	const theme = getTheme();
+	const [theme, setTheme] = useState<"light" | "dark" | "system">("light");
 	const [textClass, setTextClass] = useState("");
+
+	useEffect(() => {
+		// Get initial theme
+		setTheme(getTheme());
+
+		// Subscribe to theme changes
+		const unsubscribe = subscribe(() => {
+			setTheme(getTheme());
+		});
+
+		return unsubscribe;
+	}, []);
 
 	useEffect(() => {
 		const cls = theme === "dark" ? "text-blanco" : "text-negro3";
 		setTextClass(cls);
 	}, [theme]);
-	console.log(theme, textClass);
 	const classText =
 		size === 64
 			? " leading-5 font-semibold text-left tracking-normal text-[14px]  "
@@ -35,7 +45,6 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 
 	return (
 		<div className=' flex justify-center items-center w-max '>
-		
 			<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
 				<circle
 					cx={size / 2}
