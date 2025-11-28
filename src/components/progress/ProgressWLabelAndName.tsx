@@ -19,10 +19,11 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 	const [colorValue, setColorValue] = useState("#1A1D2C");
 
 	useEffect(() => {
-		setColorText(theme === "dark" ? "#f0f3ff" : "#8F94B0");
-		setColorValue(theme === "dark" ? "#ffffff" : "#8F94B0");
+		setColorText(
+			theme === "dark" ? "text-blanco" : "text-negro3"
+		);
+		setColorValue(theme === "dark" ? "text-blanco" : "text-negro3");
 	}, [theme]);
-	console.log(theme);
 
 	const classText =
 		size === 64
