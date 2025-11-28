@@ -1,5 +1,5 @@
 // src/lib/theme.ts
-type Theme = "light" | "dark" | "system";
+type Theme = "light" | "dark" | "system";	
 
 let currentTheme: Theme = "system";
 let listeners: Set<() => void> = new Set();
