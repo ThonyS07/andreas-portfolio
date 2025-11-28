@@ -72,8 +72,8 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 					dy='0.35em'
 					textAnchor='middle'
 					dominantBaseline='middle'
-					fill={`${colorText}`}
-					className={`${classText}`}>
+					// fill={`${colorText}`}
+					className={`${classText} ${colorText}`}>
 					{text}
 				</text>
 				<text
