@@ -32,14 +32,10 @@ function applyTheme(theme: Theme) {
 	const finalTheme =
 		theme === "system" ? (prefersDark ? "dark" : "light") : theme;
 
-	// ACTUALIZAR estado global real
-	currentTheme = finalTheme; // <<<<<<🔥 NECESARIO
-
 	root.classList.toggle("dark", finalTheme === "dark");
 
 	notify();
 }
-
 
 function notify() {
 	for (const fn of listeners) fn();
@@ -72,7 +68,6 @@ export function subscribe(fn: () => void) {
 		listeners.delete(fn);
 	};
 }
-
 
 // 🟦 API tipo "useTheme" como next-themes, pero sin React
 export function useTheme(callback?: () => void) {
