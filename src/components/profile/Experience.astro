@@ -3,26 +3,26 @@ import ProgressCircle from "../progress/ProgressCircle.astro";
 ---
 
 <div
-	class=' flex items-center justify-center flex-col  w-[328px] md:w-[680px] lg:w-[872px] md:flex-row xl:w-[1000px] md:flex-wrap lg:flex-nowrap '>
-	<div class='md:hidden gap-6  sm:flex mb-10'>
+	class='flex items-center justify-center flex-col dark:text-blanco text-negro3 w-[328px] md:w-[680px] lg:w-[872px] md:flex-row xl:w-[1000px] md:flex-wrap lg:flex-nowrap'>
+	<div class='md:hidden gap-6 sm:flex mb-10'>
 		<ProgressCircle value={57.8} size='XS' text='Banca' />
 		<ProgressCircle value={27.7} size='XS' text='Seguros' />
 		<ProgressCircle value={8.4} size='XS' text='Transporte' />
 		<ProgressCircle value={6.1} size='XS' text='Delivery' />
 	</div>
-	<div class='hidden md:flex gap-6   lg:hidden mb-14'>
+	<div class='hidden md:flex gap-6 lg:hidden mb-14'>
 		<ProgressCircle value={57.8} size='S' text='Banca' />
 		<ProgressCircle value={27.7} size='S' text='Seguros' />
 		<ProgressCircle value={8.4} size='S' text='Transporte' />
 		<ProgressCircle value={6.1} size='S' text='Delivery' />
 	</div>
-	<div class='lg:flex w-full gap-6  xl:hidden hidden mb-14'>
+	<div class='lg:flex w-full gap-6 xl:hidden hidden mb-14'>
 		<ProgressCircle value={57.8} size='M' text='Banca' />
 		<ProgressCircle value={27.7} size='M' text='Seguros' />
 		<ProgressCircle value={8.4} size='M' text='Transporte' />
 		<ProgressCircle value={6.1} size='M' text='Delivery' />
 	</div>
-	<div class='hidden  gap-6   xl:flex mb-14'>
+	<div class='hidden gap-6 xl:flex mb-14'>
 		<ProgressCircle value={57.8} size='L' text='Banca' />
 		<ProgressCircle value={27.7} size='L' text='Seguros' />
 		<ProgressCircle value={8.4} size='L' text='Transporte' />
