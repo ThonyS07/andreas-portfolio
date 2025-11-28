@@ -53,7 +53,7 @@ const NavBar = () => {
 					contactame
 				</Tabs>
 			</NavbarContent>
-			<NavbarContent className='flex gap-6 items-center' justify='end'>
+			<NavbarContent className='flex gap-6  items-center' justify='end'>
 				<ThemeSwitcher />
 				<div className='lg:hidden w-px h-6 bg-github dark:bg-blanco '></div>
 				<div className='lg:hidden'>
