@@ -49,7 +49,7 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 					cy={size / 2}
 					r={radius}
 					strokeWidth={grosor}
-					className='fill-none leading- stroke-[#f0f3ff] text-mora8  dark:stroke-[#30344a] '
+					className='fill-none leading- stroke-negro10 text-mora8  dark:stroke-negro4 '
 				/>
 				<circle
 					cx={size / 2}
@@ -58,7 +58,7 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 					strokeWidth={grosor}
 					strokeLinecap='round'
 					strokeLinejoin='round'
-					className={`fill-none stroke-[#8249ef] `}
+					className={`fill-none stroke-mora2 `}
 					style={{
 						strokeDasharray: dashArray,
 						strokeDashoffset: dashOffset,

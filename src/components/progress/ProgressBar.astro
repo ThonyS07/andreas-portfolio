@@ -7,13 +7,13 @@ import ProgressLevelFour from "./ProgressLevelFour.astro";
 import { TextSB2 } from "../../format/SemiBoldTypography";
 
 const { text, level } = Astro.props as {
-    text: string;
-    level: number;
+	text: string;
+	level: number;
 };
 ---
 
 <div
-	class='sm:w-[328px] sm:h-14 md:w-[680px]  lg:w-[564px] xl:w-[744px] h-[60px]'>
+	class='sm:w-[328px] sm:h-14 md:w-[680px] dark:text-blanco text-negro3 lg:w-[564px] xl:w-[744px] h-[60px]'>
 	<div class='mb-4'>
 		<TextSB2>{text}</TextSB2>
 	</div>
