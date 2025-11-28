@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
-import type { ProgressTypes } from '../../types/ProgressTypes'; 
-import { useTheme, getTheme } from "../../lib/theme";
-import { TextSB2, TextSB3 } from "../../format/SemiBoldTypography";
-import {
-	HeaderB6,
-	HeaderB4,
-	HeaderB3,
-	HeaderB2,
-} from "../..//format/BoldTypography";
+import type { ProgressTypes } from "../../types/ProgressTypes";
+import { getTheme } from "../../lib/theme";
 
 const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 	const grosor = 0.075 * size;
@@ -15,13 +8,12 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 	const dashArray = radius * Math.PI * 2;
 	const dashOffset = dashArray - (dashArray * value) / 100;
 	const theme = getTheme();
-	const [textClass, setTextClass] = useState("text-negro3");
-	const [valueClass, setValueClass] = useState("text-negro3");
+	const [textClass, setTextClass] = useState("");
+
 
 	useEffect(() => {
 		const cls = theme === "dark" ? "text-blanco" : "text-negro3";
 		setTextClass(cls);
-		setValueClass(cls);
 	}, [theme]);
 	const classText =
 		size === 64
@@ -71,7 +63,7 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 					textAnchor='middle'
 					dominantBaseline='middle'
 					fill='currentColor'
-					className={`${textClass} ${valueClass}`}>
+					className={`${classText}  ${textClass} `}>
 					{text}
 				</text>
 				<text
@@ -81,7 +73,7 @@ const ProgressWLabel: React.FC<ProgressTypes> = ({ value, size, text }) => {
 					textAnchor='middle'
 					dominantBaseline='middle'
 					fill='currentColor'
-					className={`${textClass} ${valueClass}`}>
+					className={`${classValue} ${textClass}`}>
 					{value}%
 				</text>
 			</svg>
