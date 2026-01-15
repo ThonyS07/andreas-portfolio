@@ -4,13 +4,13 @@ import { TextR2, TextR3 } from "../../../format/RegularTypography";
 import ProjectPageContextIcon from "./ProjectPageContextIcon.astro";
 import type { ProjectPageContextCardTypes } from "../../../types/ProjectPageContextCardTypes.ts";
 
-const { children, section, title } = Astro.props as ProjectPageContextCardTypes;
+const { section, title } = Astro.props as ProjectPageContextCardTypes;
 ---
 
 <div
 	class='sm:w-[328px] md:w-[328px] xl:w-[584px] lg:w-[560px] h-full p-[27px] rounded-2xl dark:shadow-[4px_4px_20px_0_#b997f9] dark:bg-github shadow-[4px_4px_20px_0_#4b506b]'>
-	<div>
-		<ProjectPageContextIcon>{children}</ProjectPageContextIcon>
+	<div class='dark:text-white text-negro3'>
+		<ProjectPageContextIcon><slot /></ProjectPageContextIcon>
 	</div>
 	<div class='my-4 flex xl:hidden dark:text-white text-negro3'>
 		<TextB1>{title}</TextB1>

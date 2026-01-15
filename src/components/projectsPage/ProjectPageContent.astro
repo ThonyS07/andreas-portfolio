@@ -13,9 +13,9 @@ type ProjectPageContentProps = {
 const { title, description, image } = Astro.props as ProjectPageContentProps;
 ---
 
-<div class='flex flex-col md:flex-row justify-between items-center gap-6 '>
+<div class='flex flex-col md:flex-row justify-between items-center gap-6'>
 	<div class='md:w-[50%]'>
-		<div class='flex w-full sm:mt-4'>
+		<div class='flex w-full sm:mt-4 dark:text-white text-negro3' '>
 			<ProjectPageTitle title={title} />
 		</div>
 		<div class='flex justify-center w-full items-center md:hidden'>
