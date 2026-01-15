@@ -4,17 +4,12 @@ import ProjectPageCardsWrapper from "./ProjectPageCardsWrapper.astro";
 import Frames from "../frames/Frames.astro";
 import type { ProjectPageAlcanceProps } from "../../types/ProjectPageAlcanceTypes";
 
-const {
-	stakeHolders,
-	metodologia,
-	equipo,
-	kpis,      
-} = Astro.props as ProjectPageAlcanceProps;
-
-
+const { stakeHolders, metodologia, equipo, kpis } =
+	Astro.props as ProjectPageAlcanceProps;
 ---
 
-<div class='flex flex-col w-full sm:my-12 md:my-16 xl:my-14'>
+<div
+	class='flex flex-col w-full dark:text-white text-negro3 sm:my-12 md:my-16 xl:my-14'>
 	<HeaderBl5>Alcance</HeaderBl5>
 	<div class='flex flex-col max-[768px]:mb-10 mb-14 w-full items-center'>
 		<div class='mb-8 flex flex-col items-center'></div>
@@ -25,5 +20,4 @@ const {
 			kpis={kpis}
 		/>
 	</div>
-	
 </div>

@@ -17,17 +17,17 @@ const { children, text, title } = Astro.props as ProjectPageAlcanceCardTypes;
 	<div class='my-4 flex xl:hidden'>
 		<TextB1>{title}</TextB1>
 	</div>
-	<div class='flex xl:hidden'>
+	<div class='flex xl:hidden dark:text-white text-negro3'>
 		<TextR3>
 			<ul class='list-disc pl-5'>
 				{text.map((item) => <li>{item}</li>)}
 			</ul>
 		</TextR3>
 	</div>
-	<div class='my-4 xl:flex hidden'>
+	<div class='my-4 xl:flex hidden dark:text-white text-negro3'>
 		<TextB1>{title}</TextB1>
 	</div>
-	<div class='xl:flex hidden'>
+	<div class='xl:flex hidden dark:text-white text-negro3'>
 		<TextR2>
 			<ul class='list-disc pl-5'>
 				{text.map((item) => <li>{item}</li>)}
