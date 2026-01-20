@@ -19,7 +19,7 @@ const Tabs = (props: NavbarTypes) => {
 						: "font-normal"
 				}`}
 				color='foreground'
-				href={`#${children}`}>
+				href={`${import.meta.env.BASE_URL}/#${children}`}>
 				{visibleContent}
 			</a>
 		</NavbarItem>
