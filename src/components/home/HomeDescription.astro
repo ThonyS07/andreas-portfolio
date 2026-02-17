@@ -1,13 +1,22 @@
 ---
 import { TextR2 } from "../../format/RegularTypography";
+import Button from "../buttons/Button";
 ---
+<div class="flex flex-col gap-4">
 
-<div class='flex dark:text-blanco text-negro3 flex-col w-full mt-4 m-0 gap-2'>
-	<TextR2>
-		Soy una diseñadora con más de 5 años de experiencia principalmente en banca
-		digital, optimización de procesos de banca empresas y retail. Estoy segura
-		que mi experiencia en Design Systems, investigación con usuarios y rediseño
-		de journeys críticos ayudarán a cumplir los objetivos en el reto que se me
-		proponga.
-	</TextR2>
+	<div class='flex dark:text-blanco text-negro3 flex-col w-full mt-4 m-0 gap-2'>
+		<TextR2>
+			Soy una diseñadora con más de 5 años de experiencia principalmente en banca
+			digital, optimización de procesos de banca empresas y retail. Estoy segura
+			que mi experiencia en Design Systems, investigación con usuarios y rediseño
+			de journeys críticos ayudarán a cumplir los objetivos en el reto que se me
+			proponga.
+		</TextR2>
+	</div>
+	<div class='flex'>
+		<Button size='l' href={`${import.meta.env.BASE_URL}/#mis proyectos`}
+		>Mis proyectos</Button
+		>
+
+	</div>
 </div>

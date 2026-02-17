@@ -7,7 +7,7 @@ import {
 	ButtonXXL,
 } from "../../format/ButtonsTypography";
 
-const Button = ({ children, onClick, size }: ButtonsTypes) => {
+const Button = ({ children, onClick, size, href }: ButtonsTypes) => {
 	let classNames = "";
 	if (size === "S" || size === "s") {
 		classNames = "h-7 py-[6px] px-[19px] ";
@@ -25,24 +25,35 @@ const Button = ({ children, onClick, size }: ButtonsTypes) => {
 		classNames = "h-14 py-4 px-[25px] ";
 	}
 
+	const content = (
+		<>
+			{size === "S" || size === "s" ? (
+				<ButtonS>{children}</ButtonS>
+			) : size === "M" || size === "m" ? (
+				<ButtonM>{children}</ButtonM>
+			) : size === "L" || size === "l" ? (
+				<ButtonL>{children}</ButtonL>
+			) : size === "XL" || size === "xl" ? (
+				<ButtonXL>{children}</ButtonXL>
+			) : (
+				<ButtonXXL>{children}</ButtonXXL>
+			)}
+		</>
+	);
+
+	const commonClasses = `${classNames} dark:bg-negro1 dark:border-blanco dark:border dark:hover:border-mora4 dark:hover:text-mora4 dark:hover:bg-negro1 dark:disabled:border-negro6 dark:disabled:text-negro6 dark:active:border-mora6 dark:active:text-mora6 bg-purple1 flex justify-center items-center text-center rounded-lg hover:bg-purple3 active:bg-purple2 disabled:bg-purple9 flex-row flex-nowrap whitespace-nowrap text-blanco`;
+
 	return (
-		<div className='flex justify-center  items-center'>
-			<button
-				onClick={onClick}
-				className={`${classNames}   dark:bg-negro1 dark:border-blanco dark:border dark:hover:border-mora4 dark:hover:text-mora4 dark:hover:bg-negro1 dark:disabled:border-negro6 dark:disabled:text-negro6 dark:active:border-mora6 dark:active:text-mora6 bg-purple1  flex 
-				justify-center items-center text-center rounded-lg hover:bg-purple3 active:bg-purple2 disabled:bg-purple9 flex-row flex-nowrap whitespace-nowrap text-blanco`}>
-				{size === "S" || size === "s" ? (
-					<ButtonS>{children}</ButtonS>
-				) : size === "M" || size === "m" ? (
-					<ButtonM>{children}</ButtonM>
-				) : size === "L" || size === "l" ? (
-					<ButtonL>{children}</ButtonL>
-				) : size === "XL" || size === "xl" ? (
-					<ButtonXL>{children}</ButtonXL>
-				) : (
-					<ButtonXXL>{children}</ButtonXXL>
-				)}
-			</button>
+		<div className='flex justify-center items-center'>
+			{href ? (
+				<a href={href} className={commonClasses}>
+					{content}
+				</a>
+			) : (
+				<button onClick={onClick} className={commonClasses}>
+					{content}
+				</button>
+			)}
 		</div>
 	);
 };
